@@ -1,8 +1,8 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
 	"$id": "https://soils.csiro.au/labApi.schema.json",
-    "title": "CSIROSoilConsignment",
-	"description": "A set of soil lab results for samples collected for a project.  Data that can be changed through the POST are noted with -- POST at the end of the description.",
+    	"title": "CSIROSoilConsignment",
+	"description": "A set of soil lab result requests for samples collected for a project.  Data that can be changed through the POST are noted with -- POST at the end of the description.  All fields will be provided (where available) on the GET, but only mandatory are required on the POST.",
 	"type": "object",
 	"properties": {
 		"samples": {
@@ -60,13 +60,13 @@
 						 "type": [ "string", "null" ]
 					},
 					"results": {
-						"description": "The collection of soil lab requests / results for this sample",
+						"description": "The collection of soil lab requests / results for this sample.  NOTE that no results have to be provided back when specifying viable, and not all for each POST.",
 						"type": "array",
 						"items": {
 							"type": "object",
 							"properties": {
 								"analysisType": {
-									"description": "The type of method used to analyse the result (e.g. chemical, physical, spectra, procedure)",
+									"description": "The type of method used to analyse the result (e.g. Chemical, Physical, Biological, Spectral, Prep)",
 									"type": "string"
 								},
 								"procedureId": {
@@ -74,11 +74,11 @@
 									"type": "number"
 								},
 								"standardProcedureCode": {
-									"description": "The standard procedure code or name requested for the analysis",
+									"description": "The standard procedure code or name requested for the analysis.  This will often refer to a standard (E.g. A Rayment and Lyons method code) and include analyte, or alternatively be a specific request for sample preperation or measurement from the CSIRO project.",
 									"type": "string"
 								},
 								"requestedProcedureCode": {
-									"description": "The requested procedure code from the laboratory list - if different. This procudere should provide a comparable result to the standard procedure.",
+									"description": "The requested procedure code from the laboratory list - if different. This procudere should provide an acceptably comparable result to the standard procedure - as discussed with the project.",
 									"type": "string"
 								},
 								"result": {
