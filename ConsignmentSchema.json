@@ -35,6 +35,22 @@
 						"description": "The identifier of the sample (from the CSIRO system)",
 						"type": "number"
 					},
+					"Latitude": {
+						"description": "The latitude at which the sample was collected (from the CSIRO system)",
+						"type": [ "number", "null" ]
+		        		}
+					"Longitude": {
+						"description": "The longitude at which the sample was collected (from the CSIRO system)",
+						"type": [ "number", "null" ]
+		        		}
+					"Datum": {
+						"description": "The reference used to interpret the latitude and longitude (from the CSIRO system)",
+						"type": [ "string", "null" ]
+		        		}
+					"DateCollected": {
+						"description": "The reference used to interpret the latitude and longitude (from the CSIRO system)",
+						"type": [ "string", "null" ]
+		        		}
 					"barcode": {
 						"description": "The field barcode attached to the sample",
 						"type": [ "number", "string" ]
