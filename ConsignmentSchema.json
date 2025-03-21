@@ -1,6 +1,6 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
-	"$id": "https://soils.csiro.au/labApi.schema.json",
+	"$id": "https://github.com/CSIRO-Soils/lab-request-API/blob/main/ConsignmentSchema.json",
     	"title": "CSIROSoilConsignment",
 	"description": "A set of soil lab result requests for samples collected for a project.  Data that can be changed through the POST are noted with -- POST at the end of the description.  All fields will be provided (where available) on the GET, but only mandatory are required on the POST.",
 	"type": "object",
