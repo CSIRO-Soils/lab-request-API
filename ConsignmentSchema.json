@@ -1,7 +1,7 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
 	"$id": "https://github.com/CSIRO-Soils/lab-request-API/blob/main/ConsignmentSchema.json",
-    	"title": "CSIROSoilConsignment",
+    "title": "CSIROSoilConsignment",
 	"description": "A set of soil lab result requests for samples collected for a project.  Data that can be changed through the POST are noted with -- POST at the end of the description.  All fields will be provided (where available) on the GET, but only mandatory are required on the POST.",
 	"type": "object",
 	"properties": {
@@ -13,19 +13,23 @@
 				"properties": {
 					"agencyId": {
 						"description": "The identifier of the organisation conducting the project (from the CSIRO system)",
-						"type": "string"
+						"type": "string",
+                        "maxLength": 3
 					},
 					"projectId": {
 						"description": "The identifier of the project (from the CSIRO system)",
-						"type": "string"
+						"type": "string",
+                        "maxLength": 10
 					},
 					"siteId": {
 						"description": "The identifier of the site (from the CSIRO system)",
-						"type": "string"
+						"type": "string",
+                        "maxLength": 30
 					},
 					"observationId": {
 						"description": "The identifier of the observation (from the CSIRO system)",
-						"type": "string"
+						"type": "string",
+                        "maxLength": 2
 					},
 					"horizonId": {
 						"description": "The identifier of the horizon/layer (from the CSIRO system)",
@@ -115,7 +119,8 @@
 								},
 								"notes": {
 									"description": "Descriptive conditional text to describe under what conditions (relative to other tests / qualities of the sample) the test should be performed.",
-									"type": "string"
+									"type": "string",
+                                    "maxLength": 1024
 								}
 							}
 						},
