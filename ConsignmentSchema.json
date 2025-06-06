@@ -1,6 +1,6 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
-	"$id": "https://github.com/CSIRO-Soils/lab-request-API/blob/main/ConsignmentSchema.json",
+	"$id": "https://raw.githubusercontent.com/CSIRO-Soils/lab-request-API/main/ConsignmentSchema.json",
     "title": "CSIROSoilConsignment",
 	"description": "A set of soil lab result requests for samples collected for a project.  Data that can be changed through the POST are noted with -- POST at the end of the description.  All fields will be provided (where available) on the GET, but only mandatory are required on the POST.",
 	"type": "object",
@@ -111,7 +111,8 @@
 								},
 								"resultDate": {
 									"description": "The date when the lab performed the analysis Format: (YYYY-MM-DD) (local) -- POST",
-									"type": "string"
+									"type": [ "string", "null" ],
+									"maxLength": 20
 								},
 								"uom": {
 									"description": "The units of measurement of the result property. Do not change this value from the one provided.",
@@ -119,18 +120,23 @@
 								},
 								"notes": {
 									"description": "Descriptive conditional text to describe under what conditions (relative to other tests / qualities of the sample) the test should be performed.",
-									"type": "string",
+									"type": [ "string", "null" ],
                                     "maxLength": 1024
-								}
+								},
+								"uniqueItems": true,
+								"required": [ "uom" ],
+								"anyOf": [
+									{ "required": [ "procedureId" ] },
+									{ "required": [ "standardProcedureCode" ] },
+									{ "required": [ "requestedProcedureCode" ] }
+								]
 							}
-						},
-						"uniqueItems": true,
-						"required": [ "analysisType", "procedureId", "standardProcedureCode", "uom" ]
+						}
 					}
-				}
-			},
-			"uniqueItems": true,
-			"required": [ "barcode" ]
+				},
+				"uniqueItems": true,
+				"required": [ "barcode" ]
+			}
 		}
     }
 }
